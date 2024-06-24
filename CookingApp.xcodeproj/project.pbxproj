@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142D476C2C2863ED00CAFCC9 /* CookingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D476B2C2863ED00CAFCC9 /* CookingAppApp.swift */; };
+		140682252C2A3B1B00E3915A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682242C2A3B1B00E3915A /* HomeView.swift */; };
+		140682272C2A3B5A00E3915A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682262C2A3B5A00E3915A /* CalendarView.swift */; };
+		140682292C2A3B6D00E3915A /* ShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682282C2A3B6D00E3915A /* ShoppingView.swift */; };
+		142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D476B2C2863ED00CAFCC9 /* CookingApp.swift */; };
 		142D476E2C2863ED00CAFCC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D476D2C2863ED00CAFCC9 /* ContentView.swift */; };
 		142D47702C2863EF00CAFCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D476F2C2863EF00CAFCC9 /* Assets.xcassets */; };
 		142D47732C2863EF00CAFCC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */; };
@@ -15,8 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140682242C2A3B1B00E3915A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		140682262C2A3B5A00E3915A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		140682282C2A3B6D00E3915A /* ShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingView.swift; sourceTree = "<group>"; };
 		142D47682C2863ED00CAFCC9 /* CookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		142D476B2C2863ED00CAFCC9 /* CookingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingAppApp.swift; sourceTree = "<group>"; };
+		142D476B2C2863ED00CAFCC9 /* CookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingApp.swift; sourceTree = "<group>"; };
 		142D476D2C2863ED00CAFCC9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		142D476F2C2863EF00CAFCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -34,6 +40,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140682212C2A3AE000E3915A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				140682242C2A3B1B00E3915A /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		140682222C2A3AE500E3915A /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				140682282C2A3B6D00E3915A /* ShoppingView.swift */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		140682232C2A3B0100E3915A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				140682262C2A3B5A00E3915A /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		142D475F2C2863ED00CAFCC9 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +88,7 @@
 				142D477B2C28641000CAFCC9 /* Models */,
 				142D477A2C28640B00CAFCC9 /* Components */,
 				142D47792C28640400CAFCC9 /* Core */,
-				142D476B2C2863ED00CAFCC9 /* CookingAppApp.swift */,
+				142D476B2C2863ED00CAFCC9 /* CookingApp.swift */,
 				142D476F2C2863EF00CAFCC9 /* Assets.xcassets */,
 				142D47712C2863EF00CAFCC9 /* Preview Content */,
 			);
@@ -76,6 +106,9 @@
 		142D47792C28640400CAFCC9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				140682232C2A3B0100E3915A /* Calendar */,
+				140682222C2A3AE500E3915A /* Shopping */,
+				140682212C2A3AE000E3915A /* Home */,
 				142D476D2C2863ED00CAFCC9 /* ContentView.swift */,
 			);
 			path = Core;
@@ -180,9 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140682272C2A3B5A00E3915A /* CalendarView.swift in Sources */,
 				142D476E2C2863ED00CAFCC9 /* ContentView.swift in Sources */,
+				140682292C2A3B6D00E3915A /* ShoppingView.swift in Sources */,
+				140682252C2A3B1B00E3915A /* HomeView.swift in Sources */,
 				142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */,
-				142D476C2C2863ED00CAFCC9 /* CookingAppApp.swift in Sources */,
+				142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +361,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +396,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
