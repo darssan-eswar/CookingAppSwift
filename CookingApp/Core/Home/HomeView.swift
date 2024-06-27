@@ -6,9 +6,24 @@
 //
 
 import SwiftUI
+import Charts
+
+struct PieSlice: Identifiable {
+    let id = UUID()
+    let category: String
+    let value: Double
+}
+
 
 struct HomeView: View {
   let name:String = "Arshia"
+  let pieChartData = [
+      PieSlice(category: "Fats", value: 20),
+      PieSlice(category: "Carbs", value: 20),
+      PieSlice(category: "Protein", value: 20)
+    ]
+  
+  
   var body: some View {
     NavigationStack {
       ScrollView {
@@ -27,13 +42,19 @@ struct HomeView: View {
             
             .frame(alignment: .top)
             ScrollView3D()
+          Chart(pieChartData) { slice in
+            SectorMark(
+              angle: .value("Value", slice.value),
+              innerRadius: .ratio(0.0),
+              angularInset: 1.0
+            )
+            .foregroundStyle(by: .value("Category", slice.category))
+          }
+          .frame(width:.infinity, height: 250)
             }
 
           }
  
-          VStack {
-            Text("Some details")
-          }
         }
         .padding(.top, 64)
       }
@@ -47,39 +68,31 @@ struct ScrollView3D: View {
       ScrollView(.horizontal, showsIndicators: false) {
         
         HStack {
-          
           ForEach(meals, id: \.self) { meal in
-            GeometryReader{ geometry in
               
-              let rot: Double = geometry.frame(in: .global).minX
               RoundedRectangle(cornerRadius: 8)
-              //                Text(meal)
+            
+
                 .fill(.gray)
-              //              .frame(width:400, height: 150)
-              
+                .frame(height: 150)
                 .overlay(Text(meal))
-//                .rotation3DEffect(.degrees(rot / 5 + 20)
-//                                  , axis: (x: 0.0, y: 1.0, z: 0))
-              
-                            .scrollTransition { content, phase in
-                              content
-                                .scaleEffect(x: phase.isIdentity ? 1.0 : 0.3,
-                                             y: phase.isIdentity ? 1.0 : 0.3)
-                                .offset(y: phase.isIdentity ? 0.0: -50)
-              
-                            }
-              
-              //gr
-            }
-            .frame(width: 200, height: 150)
-
-
+                .containerRelativeFrame(.horizontal, count : 1, spacing: 30)
+                .scrollTransition { content, phase in
+                  content
+//                    .scaleEffect(x: phase.isIdentity ? 1.0 : 0.8,
+//                                 y: phase.isIdentity ? 1.0 : 0.3)
+                    .offset(y: phase.isIdentity ? 0.0: -50)
+                  
+                }
           }
           
         }
+        .frame(height:200)
+        .scrollTargetLayout()
         
       }
       .scrollTargetBehavior(.paging)
+      .contentMargins(16, for:.scrollContent)
   }
 }
    
