@@ -58,16 +58,16 @@ struct ScrollView3D: View {
               //              .frame(width:400, height: 150)
               
                 .overlay(Text(meal))
-                .rotation3DEffect(.degrees(rot / 5 + 20)
-                                  , axis: (x: 0.0, y: 1.0, z: 0))
+//                .rotation3DEffect(.degrees(rot / 5 + 20)
+//                                  , axis: (x: 0.0, y: 1.0, z: 0))
               
-//                            .scrollTransition { content, phase in
-//                              content
-//                                .scaleEffect(x: phase.isIdentity ? 1.0 : 0.3,
-//                                             y: phase.isIdentity ? 1.0 : 0.3)
-//                                .offset(y: phase.isIdentity ? 0.0: -50)
-//              
-//                            }
+                            .scrollTransition { content, phase in
+                              content
+                                .scaleEffect(x: phase.isIdentity ? 1.0 : 0.3,
+                                             y: phase.isIdentity ? 1.0 : 0.3)
+                                .offset(y: phase.isIdentity ? 0.0: -50)
+              
+                            }
               
               //gr
             }
