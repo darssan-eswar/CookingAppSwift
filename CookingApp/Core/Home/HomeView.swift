@@ -112,40 +112,17 @@ struct anotherView: View {
 //              let width = geometry.size.width
 //              print(rot)
             }
-            .frame(height: 40)
+          }
         }
+      }
+      VStack {
+        Text("Some details")
+      }
     }
+    .padding(.top, 64)
   }
 }
-
-
-
 
 #Preview {
   HomeView()
 }
-      
-      
-//.scrollTransition { content, phase in
-//  content
-//    .scaleEffect(x: phase.isIdentity ? 1.0 : 0.3,
-//                 y: phase.isIdentity ? 1.0 : 0.3)
-//    .offset(y: phase.isIdentity ? 0.0: -50)
-//  
-//}
-
-      
-      
-      
-          //                  .rotation3DEffect(
-          //                    .degrees( (proxy.frame(in: .global).minY) -fullView.size.height / 2) / 5
-          //                    , axis: (x: 0.0, y: 1.0, z: 0))
-          //
-          //                    }
-
-
-
-
-
-
-
