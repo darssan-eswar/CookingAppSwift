@@ -8,19 +8,25 @@
 import Foundation
 
 final class User: Identifiable, ObservableObject {
-  static let user: User? = nil
+  static let shared: User? = nil
   
   @Published var id: String
   @Published var username: String
   @Published var email: String
-  @Published var plannedMeals: [String]
-  private var token: String?
+  @Published var recipes: [Recipe]
+  var token: String?
   
-  private init(id: String, username: String, email: String, plannedMeals: [String], token: String? = nil) {
+  private init(
+    id: String,
+    username: String,
+    email: String,
+    recipes: [Recipe],
+    token: String? = nil
+  ) {
     self.id = id
     self.username = username
     self.email = email
-    self.plannedMeals = plannedMeals
+    self.recipes = recipes
     self.token = token
   }
 }

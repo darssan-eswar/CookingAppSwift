@@ -12,7 +12,9 @@ class NetworkManager {
   private var baseUrl = ""
   private var headers = ["Content-Type" : "application/json"]
   
-  private init() {}
+  init(_ baseUrl: String) {
+    self.baseUrl = baseUrl
+  }
   
   func setBaseUrl(_ url: String) {
     self.baseUrl = url
@@ -35,6 +37,7 @@ class NetworkManager {
     var request = URLRequest(url: url)
     self.headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
     headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+    request.httpMethod = "GET"
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)
@@ -49,14 +52,17 @@ class NetworkManager {
     }
   }
   
-  func POST<T: Decodable>(_ path: String, body: Data, headers: [String : String] = [:]) async throws -> T {
+  func POST<T: Decodable>(_ path: String, body: Data? = nil, headers: [String : String] = [:]) async throws -> T {
     guard let url = URL(string: "\(baseUrl)\(path)") else { throw CookingAppError.invalidUrl }
     
     var request = URLRequest(url: url)
     self.headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
     headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+    request.httpMethod = "POST"
     
-    request.httpBody = body
+    if let body {
+      request.httpBody = body
+    }
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)
@@ -71,14 +77,17 @@ class NetworkManager {
     }
   }
   
-  func PUT<T: Decodable>(_ path: String, body: Data, headers: [String : String] = [:]) async throws -> T? {
+  func PUT<T: Decodable>(_ path: String, body: Data? = nil, headers: [String : String] = [:]) async throws -> T {
     guard let url = URL(string: "\(baseUrl)\(path)") else { throw CookingAppError.invalidUrl }
     
     var request = URLRequest(url: url)
     self.headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
     headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+    request.httpMethod = "PUT"
     
-    request.httpBody = body
+    if let body {
+      request.httpBody = body
+    }
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)
@@ -93,14 +102,17 @@ class NetworkManager {
     }
   }
   
-  func PATCH<T: Decodable>(_ path: String, body: Data, headers: [String : String] = [:]) async throws -> T? {
+  func PATCH<T: Decodable>(_ path: String, body: Data? = nil, headers: [String : String] = [:]) async throws -> T {
     guard let url = URL(string: "\(baseUrl)\(path)") else { throw CookingAppError.invalidUrl }
     
     var request = URLRequest(url: url)
     self.headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
     headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+    request.httpMethod = "PATCH"
     
-    request.httpBody = body
+    if let body {
+      request.httpBody = body
+    }
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)
@@ -115,12 +127,13 @@ class NetworkManager {
     }
   }
   
-  func DELETE<T: Decodable>(_ path: String, headers: [String : String] = [:]) async throws -> T? {
+  func DELETE<T: Decodable>(_ path: String, headers: [String : String] = [:]) async throws -> T {
     guard let url = URL(string: "\(baseUrl)\(path)") else { throw CookingAppError.invalidUrl }
     
     var request = URLRequest(url: url)
     self.headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
     headers.forEach { request.setValue($1, forHTTPHeaderField: $0) }
+    request.httpMethod = "DELETE"
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)

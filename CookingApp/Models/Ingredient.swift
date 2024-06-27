@@ -11,5 +11,5 @@ struct Ingredient: Codable, Identifiable {
   let id: String
   let name: String
   let unit: String
-  let pricePerUnit: Double
+  let quantity: Double
 }
