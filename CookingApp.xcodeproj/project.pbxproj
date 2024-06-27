@@ -15,6 +15,7 @@
 		142D47702C2863EF00CAFCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D476F2C2863EF00CAFCC9 /* Assets.xcassets */; };
 		142D47732C2863EF00CAFCC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */; };
 		142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D477F2C28647A00CAFCC9 /* Modifiers.swift */; };
+		C79337F42C2C636700A7E0CE /* BentRentangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79337F32C2C636700A7E0CE /* BentRentangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		142D476F2C2863EF00CAFCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		142D477F2C28647A00CAFCC9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		C79337F32C2C636700A7E0CE /* BentRentangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentRentangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				140682242C2A3B1B00E3915A /* HomeView.swift */,
+				C79337F32C2C636700A7E0CE /* BentRentangle.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				140682252C2A3B1B00E3915A /* HomeView.swift in Sources */,
 				142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */,
 				142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */,
+				C79337F42C2C636700A7E0CE /* BentRentangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
