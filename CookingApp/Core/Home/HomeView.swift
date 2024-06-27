@@ -114,11 +114,6 @@ struct anotherView: View {
             }
           }
         }
-      }
-      VStack {
-        Text("Some details")
-      }
-    }
     .padding(.top, 64)
   }
 }
