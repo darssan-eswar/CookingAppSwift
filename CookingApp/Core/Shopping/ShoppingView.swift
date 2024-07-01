@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ShoppingView: View {
   @State var ingredients = ["Bread", "Milk", "Eggs", "Rice", "Pasts", "Chicken"]
   
