@@ -11,42 +11,34 @@
 import SwiftUI
 import Charts
 
-
-
 struct HomeView: View {
-  let name:String = "Arshia"
+  @EnvironmentObject var user: User
   @State var currMeal: Meal = dummyData.Meals[0]
-    
   
   var body: some View {
     NavigationStack {
       ScrollView {
         VStack(spacing: 24) {
-            HStack(alignment:.top){
-                Image(systemName:"cart.fill")
-                    .imageScale(.large)
-                
-                    .padding(.leading)
-                Spacer()
-                Text("Welcome " + name)
-                    .padding(.trailing)
-
-            }
+          HStack(alignment:.top){
+            Image(systemName:"cart.fill")
+              .imageScale(.large)
+              .padding(.leading)
+            Spacer()
+            Text("Welcome \(user.username)")
+              .padding(.trailing)
             
-            .frame(alignment: .top)
+          }
+          .frame(alignment: .top)
           ScrollViewRotate(currMeal: self.$currMeal)
           PieChartView(currMeal: self.$currMeal)
-          .frame(width: 250, height: 250)
-            }
-
-          }
- 
+            .frame(width: 250, height: 250)
         }
       }
+    }
   }
+}
 
 struct ScrollViewRotate: View {
-  
   let meals: [Meal] = dummyData.Meals
   @Binding var currMeal: Meal
   @State private var currPosition : Int? = 0 // has to be Optional
@@ -56,28 +48,23 @@ struct ScrollViewRotate: View {
       ScrollView(.horizontal, showsIndicators: false) {
           LazyHStack {
             ForEach(Array(meals.enumerated()), id: \.offset) { index, meal in
-              NavigationLink(destination: RecipeView(), label: {
+              NavigationLink(destination: RecipeView()) {
                 RoundedRectangle(cornerRadius: 8)
                   .fill(colorTheme.c1)
                   .frame(height: 150)
                   .overlay(
                     Text(meal.title)
                       .foregroundColor(.black)
-                    
                   )
- 
                   .containerRelativeFrame(.horizontal, count : 1, spacing: 30)
                   .scrollTransition { content, phase in
                     content
                       .offset(y: phase.isIdentity ? 0.0: -50)
-                    
                   }
-                
                   .id(index)
-              })
+              }
 //              Text("\(index)")
             }
-            
           }
           .frame(height:200)
           .scrollTargetLayout()
@@ -92,9 +79,8 @@ struct ScrollViewRotate: View {
       .contentMargins(16, for:.scrollContent)
     
 //    Text("\(currPosition ?? 100)")
-    NavigationLink(destination: RecipeView(), label: {
-      HStack() {
-        
+    NavigationLink(destination: RecipeView()) {
+      HStack {
         Text(mealPageStr)
           .foregroundColor(colorTheme.c1)
         Spacer()
@@ -102,28 +88,21 @@ struct ScrollViewRotate: View {
           .foregroundColor(colorTheme.c1)
       }
       .padding(.horizontal)
-    })
+    }
   }
 }
-   
-
-
 
 enum colorTheme{
-  
   static let c1 = Color(hex: "D99066")
   static let c2 = Color(hex: "F2D7B6")
   static let c3 = Color(hex: "8C4830")
 }
 
-
 struct PieChartView: View {
   @Binding var currMeal: Meal
   let colors: [Color] = [.blue, .black, .orange]
   
-  
   var body: some View {
-     
     // meal.pieChartData has info for the pie chart
     Chart(currMeal.pieChartData, id: \.id) { slice in
       SectorMark(
@@ -143,35 +122,6 @@ struct PieChartView: View {
     Text(currMeal.title)
   }
 }
-
-extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
-        switch hex.count {
-        case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-        default:
-            (a, r, g, b) = (1, 1, 1, 0)
-        }
-
-        self.init(
-            .sRGB,
-            red: Double(r) / 255,
-            green: Double(g) / 255,
-            blue:  Double(b) / 255,
-            opacity: Double(a) / 255
-        )
-    }
-}
-
-
 
 #Preview {
   HomeView()

@@ -10,18 +10,19 @@
 		140682252C2A3B1B00E3915A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682242C2A3B1B00E3915A /* HomeView.swift */; };
 		140682272C2A3B5A00E3915A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682262C2A3B5A00E3915A /* CalendarView.swift */; };
 		140682292C2A3B6D00E3915A /* ShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682282C2A3B6D00E3915A /* ShoppingView.swift */; };
-		1406822D2C2A3CA000E3915A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406822C2C2A3CA000E3915A /* Recipe.swift */; };
-		1406822F2C2A3CCB00E3915A /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406822E2C2A3CCB00E3915A /* Ingredient.swift */; };
-		140682332C2A3D3700E3915A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682322C2A3D3700E3915A /* User.swift */; };
-		140682352C2A3E6200E3915A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682342C2A3E6200E3915A /* NetworkManager.swift */; };
-		140682372C2A43E400E3915A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682362C2A43E400E3915A /* Errors.swift */; };
-		141834EB2C2CF91300B12D1D /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141834EA2C2CF91300B12D1D /* BackendManager.swift */; };
 		141834ED2C2CFD0600B12D1D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 141834EC2C2CFD0600B12D1D /* .gitignore */; };
 		142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D476B2C2863ED00CAFCC9 /* CookingApp.swift */; };
 		142D476E2C2863ED00CAFCC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D476D2C2863ED00CAFCC9 /* ContentView.swift */; };
 		142D47702C2863EF00CAFCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D476F2C2863EF00CAFCC9 /* Assets.xcassets */; };
 		142D47732C2863EF00CAFCC9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */; };
 		142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D477F2C28647A00CAFCC9 /* Modifiers.swift */; };
+		14D2A3C32C34E91400274B2A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2A3C22C34E91400274B2A /* LoginView.swift */; };
+		14D2A3C52C34E91D00274B2A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2A3C42C34E91D00274B2A /* RegisterView.swift */; };
+		14D2A3C62C34EA7F00274B2A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682362C2A43E400E3915A /* Errors.swift */; };
+		14D2A3C72C34EA7F00274B2A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682342C2A3E6200E3915A /* NetworkManager.swift */; };
+		14D2A3C82C34EA7F00274B2A /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141834EA2C2CF91300B12D1D /* BackendManager.swift */; };
+		14D2A3C92C34EA7F00274B2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140682322C2A3D3700E3915A /* User.swift */; };
+		14D2A3CD2C34F58A00274B2A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2A3CC2C34F58A00274B2A /* Extensions.swift */; };
 		C7062B922C2E2988004ADC12 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406822C2C2A3CA000E3915A /* Recipe.swift */; };
 		C7062B932C2E29B0004ADC12 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406822E2C2A3CCB00E3915A /* Ingredient.swift */; };
 		C7062B952C2F2894004ADC12 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7062B942C2F2894004ADC12 /* Meal.swift */; };
@@ -47,6 +48,9 @@
 		142D476F2C2863EF00CAFCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142D47722C2863EF00CAFCC9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		142D477F2C28647A00CAFCC9 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		14D2A3C22C34E91400274B2A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		14D2A3C42C34E91D00274B2A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		14D2A3CC2C34F58A00274B2A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C7062B942C2F2894004ADC12 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C7062B962C2F2A28004ADC12 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		C79337F32C2C636700A7E0CE /* BentRentangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentRentangle.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		142D47792C28640400CAFCC9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				14D2A3C12C34E90800274B2A /* Auth */,
 				C79337F52C2CFB5000A7E0CE /* Recipe */,
 				140682232C2A3B0100E3915A /* Calendar */,
 				140682222C2A3AE500E3915A /* Shopping */,
@@ -174,8 +179,18 @@
 			children = (
 				142D477F2C28647A00CAFCC9 /* Modifiers.swift */,
 				140682362C2A43E400E3915A /* Errors.swift */,
+				14D2A3CC2C34F58A00274B2A /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		14D2A3C12C34E90800274B2A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				14D2A3C22C34E91400274B2A /* LoginView.swift */,
+				14D2A3C42C34E91D00274B2A /* RegisterView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		C79337F52C2CFB5000A7E0CE /* Recipe */ = {
@@ -257,9 +272,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D2A3C62C34EA7F00274B2A /* Errors.swift in Sources */,
+				14D2A3C72C34EA7F00274B2A /* NetworkManager.swift in Sources */,
+				14D2A3C82C34EA7F00274B2A /* BackendManager.swift in Sources */,
+				14D2A3C92C34EA7F00274B2A /* User.swift in Sources */,
 				C7062B972C2F2A28004ADC12 /* DummyData.swift in Sources */,
 				140682272C2A3B5A00E3915A /* CalendarView.swift in Sources */,
 				142D476E2C2863ED00CAFCC9 /* ContentView.swift in Sources */,
+				14D2A3CD2C34F58A00274B2A /* Extensions.swift in Sources */,
+				14D2A3C52C34E91D00274B2A /* RegisterView.swift in Sources */,
 				C7062B932C2E29B0004ADC12 /* Ingredient.swift in Sources */,
 				140682292C2A3B6D00E3915A /* ShoppingView.swift in Sources */,
 				C7062B952C2F2894004ADC12 /* Meal.swift in Sources */,
@@ -267,6 +288,7 @@
 				142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */,
 				142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */,
 				C7062B922C2E2988004ADC12 /* Recipe.swift in Sources */,
+				14D2A3C32C34E91400274B2A /* LoginView.swift in Sources */,
 				C79337F72C2CFB6100A7E0CE /* RecipeView.swift in Sources */,
 				C79337F42C2C636700A7E0CE /* BentRentangle.swift in Sources */,
 			);
