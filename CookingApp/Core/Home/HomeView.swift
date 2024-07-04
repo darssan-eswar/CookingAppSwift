@@ -23,16 +23,13 @@ struct HomeView: View {
     NavigationStack {
       ScrollView {
         VStack(spacing: 24) {
-            HStack(alignment:.top){
-                Image(systemName:"cart.fill")
-                    .imageScale(.large)
-                
-                    .padding(.leading)
-                Spacer()
-                Text("Welcome " + name)
-                    .padding(.trailing)
-
-            }
+          HStack(alignment:.top){
+            Image(systemName:"cart.fill")
+              .imageScale(.large)
+              .padding(.leading)
+            Spacer()
+            Text("Welcome \(user.username)")
+              .padding(.trailing)
             
             .frame(alignment: .top)
           ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay)

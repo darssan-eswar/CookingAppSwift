@@ -94,6 +94,7 @@
 		142D475F2C2863ED00CAFCC9 = {
 			isa = PBXGroup;
 			children = (
+				141834EC2C2CFD0600B12D1D /* .gitignore */,
 				142D476A2C2863ED00CAFCC9 /* CookingApp */,
 				142D47692C2863ED00CAFCC9 /* Products */,
 			);
@@ -133,6 +134,7 @@
 		142D47792C28640400CAFCC9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				14D2A3C12C34E90800274B2A /* Auth */,
 				C79337F52C2CFB5000A7E0CE /* Recipe */,
 				140682232C2A3B0100E3915A /* Calendar */,
 				140682222C2A3AE500E3915A /* Shopping */,
@@ -178,8 +180,18 @@
 			children = (
 				142D477F2C28647A00CAFCC9 /* Modifiers.swift */,
 				140682362C2A43E400E3915A /* Errors.swift */,
+				14D2A3CC2C34F58A00274B2A /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		14D2A3C12C34E90800274B2A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				14D2A3C22C34E91400274B2A /* LoginView.swift */,
+				14D2A3C42C34E91D00274B2A /* RegisterView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		C79337F52C2CFB5000A7E0CE /* Recipe */ = {
@@ -251,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142D47732C2863EF00CAFCC9 /* Preview Assets.xcassets in Resources */,
+				141834ED2C2CFD0600B12D1D /* .gitignore in Resources */,
 				142D47702C2863EF00CAFCC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,9 +275,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D2A3C62C34EA7F00274B2A /* Errors.swift in Sources */,
+				14D2A3C72C34EA7F00274B2A /* NetworkManager.swift in Sources */,
+				14D2A3C82C34EA7F00274B2A /* BackendManager.swift in Sources */,
+				14D2A3C92C34EA7F00274B2A /* User.swift in Sources */,
 				C7062B972C2F2A28004ADC12 /* DummyData.swift in Sources */,
 				140682272C2A3B5A00E3915A /* CalendarView.swift in Sources */,
 				142D476E2C2863ED00CAFCC9 /* ContentView.swift in Sources */,
+				14D2A3CD2C34F58A00274B2A /* Extensions.swift in Sources */,
+				14D2A3C52C34E91D00274B2A /* RegisterView.swift in Sources */,
 				C7062B932C2E29B0004ADC12 /* Ingredient.swift in Sources */,
 				140682292C2A3B6D00E3915A /* ShoppingView.swift in Sources */,
 				C70EFBA02C35B106000E09FF /* RecipeSearchView.swift in Sources */,
