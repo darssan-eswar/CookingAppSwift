@@ -7,21 +7,24 @@
 
 import Foundation
 
-struct Recipe: Codable, Identifiable{
+struct Recipe: Identifiable{
   
   public let id: String
   let name: String
   let description: String
   let ingredients: [Ingredient]
   let instructions: [String]
- 
+  var nutInfo : NutritionalValue
+  
+  
   init() {
     
     self.id =  UUID().uuidString
-    self.name = "DefaultRecipeName"
+    self.name = "Click here to Enter Recipe"
     self.description = "This is the default description for the recipe"
     self.ingredients = [Ingredient(), Ingredient()]
     self.instructions = ["first step", "second step"]
+    self.nutInfo = NutritionalValue()
   }
  
   init(theId id : String, theName name:String, theDescription description:String, theIngredients ingredients :[Ingredient], theInstructions instructions: [String]) {
@@ -31,6 +34,8 @@ struct Recipe: Codable, Identifiable{
     self.description = description
     self.ingredients = ingredients
     self.instructions = instructions
+    
+    self.nutInfo = NutritionalValue()
   }
   
   static func of(_ name: String, _ description: String, _ ingredients: [Ingredient], _ instructions: [String]) -> Recipe {

@@ -15,7 +15,8 @@ import Charts
 
 struct HomeView: View {
   let name:String = "Arshia"
-  @State var currMeal: Meal = dummyData.Meals[0]
+  @State var currDay : DayInfo = templateData().days[0]
+//  @State var currMeal: Meal = dummyData.Meals[0]
     
   
   var body: some View {
@@ -34,8 +35,8 @@ struct HomeView: View {
             }
             
             .frame(alignment: .top)
-          ScrollViewRotate(currMeal: self.$currMeal)
-          PieChartView(currMeal: self.$currMeal)
+          ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay)
+          PieChartView(currDay: self.$currDay)
           .frame(width: 250, height: 250)
             }
 
@@ -47,35 +48,31 @@ struct HomeView: View {
 
 struct ScrollViewRotate: View {
   
-  let meals: [Meal] = dummyData.Meals
-  @Binding var currMeal: Meal
+  var allDays : [DayInfo]
+  @Binding var currDay: DayInfo
   @State private var currPosition : Int? = 0 // has to be Optional
   @State private var mealPageStr : String = "Meal Page"
+  @State private var showRecipeSearch : Bool = false
+  @State var currMeal : Meal?
   var body: some View {
       
       ScrollView(.horizontal, showsIndicators: false) {
           LazyHStack {
-            ForEach(Array(meals.enumerated()), id: \.offset) { index, meal in
-              NavigationLink(destination: RecipeView(), label: {
+            ForEach(Array(allDays.enumerated()), id: \.offset) { index, day in
+              NavigationLink(destination: RecipeView(recipe: Recipe()), label: {
                 RoundedRectangle(cornerRadius: 8)
                   .fill(colorTheme.c1)
                   .frame(height: 150)
                   .overlay(
-                    Text(meal.title)
+                    Text(day.weekDay)
                       .foregroundColor(.black)
                     
                   )
- 
                   .containerRelativeFrame(.horizontal, count : 1, spacing: 30)
-                  .scrollTransition { content, phase in
-                    content
-                      .offset(y: phase.isIdentity ? 0.0: -50)
-                    
-                  }
-                
                   .id(index)
+                
+                
               })
-//              Text("\(index)")
             }
             
           }
@@ -84,28 +81,57 @@ struct ScrollViewRotate: View {
       }
       .scrollPosition(id: $currPosition)
       .onChange(of:currPosition) {
-          currMeal = meals[currPosition ?? 0]
-          mealPageStr = currMeal.title
-          print("In the on change")
+          currDay = allDays[currPosition ?? 0]
+//          mealPageStr = currMeal.title
       }
       .scrollTargetBehavior(.paging)
       .contentMargins(16, for:.scrollContent)
     
-//    Text("\(currPosition ?? 100)")
-    NavigationLink(destination: RecipeView(), label: {
-      HStack() {
+    LazyVStack{
+      ForEach(0..<Int(currDay.meals.count), id: \.self) { index in
         
-        Text(mealPageStr)
-          .foregroundColor(colorTheme.c1)
-        Spacer()
-        Image(systemName:"plus.circle")
-          .foregroundColor(colorTheme.c1)
+          HStack() {
+           
+              Text("\(currDay.meals[index].title)")
+                .foregroundColor(.black)
+                .padding(.horizontal)
+              Text("\(currDay.meals[index].recipe.name)")
+                .foregroundColor(colorTheme.c1)
+                .padding(.leading)
+                .onTapGesture {
+                  
+                  currMeal = currDay.meals[index]
+                  showRecipeSearch = true
+                }
+              
+            
+            Spacer()
+            
+            
+            NavigationLink(destination: RecipeView(recipe: currDay.meals[index].recipe), label: {
+              
+              Image(systemName:"arrow.right")
+                .foregroundColor(colorTheme.c1)
+                .padding(.trailing)
+            })
+          }
       }
-      .padding(.horizontal)
+    }
+    .popover(isPresented: $showRecipeSearch, content: {
+      
+      Text(currMeal?.recipe.name ?? "EMPTY, ERROR")
+        .padding(.top)
+      RecipeSearchView()
+        .presentationDetents([.medium])
     })
+    
   }
 }
    
+
+
+
+
 
 
 
@@ -118,14 +144,14 @@ enum colorTheme{
 
 
 struct PieChartView: View {
-  @Binding var currMeal: Meal
+  @Binding var currDay: DayInfo
   let colors: [Color] = [.blue, .black, .orange]
   
   
   var body: some View {
      
     // meal.pieChartData has info for the pie chart
-    Chart(currMeal.pieChartData, id: \.id) { slice in
+    Chart(currDay.pieChartData, id: \.id) { slice in
       SectorMark(
         angle: .value("Value", slice.value),
         innerRadius: .ratio(0.9),
@@ -140,7 +166,6 @@ struct PieChartView: View {
       "Carbs": colorTheme.c2,
       "Protein": colorTheme.c3
     ])
-    Text(currMeal.title)
   }
 }
 

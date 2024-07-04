@@ -11,16 +11,85 @@ import SwiftUI
 
 
 struct RecipeView: View {
-  @State private var recipe: Recipe = dummyData.Recipes[1]
-    
+  @State var recipe : Recipe
+  @State var editMenu : Bool = false
   
   var body: some View {
       VStack {
+      
+        GeometryReader { geometry in
+          HStack(spacing: 0) {
+            Spacer()
+              .frame(width: geometry.size.width / 4)
+            Text(recipe.name)
+              .font(.title)
+              .frame(width: geometry.size.width / 2)
+              .textSelection(.enabled)
+            
+            
+            ZStack {
+              Menu {
+                Button("Edit Recipe") {
+                  
+                }
+                Button("Change Recipe") {
+                  
+                }
+              } label: {
+                
+                Image(systemName: "square.and.pencil")
+                
+                  .padding(.trailing)
+                  .frame(width: geometry.size.width / 4)
+                  .onTapGesture {
+                    editMenu.toggle()
+                  }
+                  .foregroundColor(.blue)
+              }
+            }
+          }
+          .frame(height: geometry.size.height)
+        }
+        .frame(height: 40)
+       
         Image("photo")
           .resizable()
           .scaledToFit()
-        ToggleViewIngredient(recipe.ingredients)
-        ToggleViewInstruction(recipe.instructions)
+        Spacer()
+          .frame(height: 20)
+        
+        HStack {
+          Text("Ingredients")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.title2)
+          Image(systemName: "pencil")   
+        }
+        .padding(.horizontal)
+        
+        ForEach(recipe.ingredients) { ing in
+   
+          Text("\(doubleFormatter(ing.quantity)) \(ing.unit) of \(ing.name)")
+        }
+          .frame(maxWidth: .infinity,alignment: .leading)
+          .padding(.horizontal)
+          
+          Spacer()
+          .frame(height: 10)
+        Text("Instructions")
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .font(.title2)
+          .padding(.horizontal)
+        
+        ForEach(recipe.instructions, id: \.self) { step in
+          Text(step)
+        }
+          .frame(maxWidth: .infinity,alignment: .leading)
+          .padding(.horizontal)
+
+        
+//        ToggleViewIngredient(recipe.ingredients)
+        
+//        ToggleViewInstruction(recipe.instructions)
         Spacer()
       }
     
@@ -29,6 +98,10 @@ struct RecipeView: View {
   }
   
 }
+
+
+
+
 
 
 struct ToggleViewIngredient: View {
@@ -120,5 +193,5 @@ func doubleFormatter(_ input: Double) -> String {
 }
 
 #Preview{
-    RecipeView()
+  RecipeView(recipe: templateData().days[0].lunch)
 }

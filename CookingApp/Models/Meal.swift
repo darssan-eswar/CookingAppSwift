@@ -17,11 +17,7 @@ class Meal: Identifiable, ObservableObject{
   @Published var recipe: Recipe
 
   
-  var pieChartData = [
-    PieSlice(category: "Fats", value: 30, color: colorTheme.c1),
-    PieSlice(category: "Carbs", value: 20, color: colorTheme.c2),
-    PieSlice(category: "Protein", value: 20, color: colorTheme.c3)
-    ]
+
 
   init(id: String, title: String, recipe: Recipe) {
     self.id = id
@@ -38,16 +34,6 @@ class Meal: Identifiable, ObservableObject{
     return Meal(id: UUID().uuidString, title: title, recipe: recipe)
   }
   
-  func setRatioOneValue(value: Double) -> Meal{
-    pieChartData[0].value = value
-    return self
-  }
 }
 
 
-struct PieSlice: Identifiable {
-    let id = UUID()
-    let category: String
-    var value: Double
-    let color: Color
-}
