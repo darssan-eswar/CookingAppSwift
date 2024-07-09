@@ -15,9 +15,10 @@ import Charts
 
 struct HomeView: View {
   let name:String = "Arshia"
+  @EnvironmentObject var user: User
   @State var currDay : DayInfo = templateData().days[0]
-//  @State var currMeal: Meal = dummyData.Meals[0]
-    
+  //  @State var currMeal: Meal = dummyData.Meals[0]
+  
   
   var body: some View {
     NavigationStack {
@@ -30,18 +31,19 @@ struct HomeView: View {
             Spacer()
             Text("Welcome \(user.username)")
               .padding(.trailing)
-            
-            .frame(alignment: .top)
-          ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay)
-          PieChartView(currDay: self.$currDay)
-          .frame(width: 250, height: 250)
-            }
-
           }
- 
-        }
+              .frame(alignment: .top)
+            ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay)
+            PieChartView(currDay: self.$currDay)
+              .frame(width: 250, height: 250)
+          }
+          
+        
+        
       }
+    }
   }
+}
 
 struct ScrollViewRotate: View {
   
@@ -125,15 +127,7 @@ struct ScrollViewRotate: View {
   }
 }
    
-
-
-
-
-
-
-
 enum colorTheme{
-  
   static let c1 = Color(hex: "D99066")
   static let c2 = Color(hex: "F2D7B6")
   static let c3 = Color(hex: "8C4830")

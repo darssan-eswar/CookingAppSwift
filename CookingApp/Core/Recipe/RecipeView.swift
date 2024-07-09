@@ -68,7 +68,7 @@ struct RecipeView: View {
         
         ForEach(recipe.ingredients) { ing in
    
-          Text("\(doubleFormatter(ing.quantity)) \(ing.unit) of \(ing.name)")
+          Text("\(ing.quantity.formatted()) \(ing.unit) of \(ing.name)")
         }
           .frame(maxWidth: .infinity,alignment: .leading)
           .padding(.horizontal)
@@ -126,13 +126,6 @@ struct ToggleViewIngredient: View {
         withAnimation(.snappy) {
           isExpanded.toggle()
         }
-        .padding(.horizontal)
-        .frame(height: 40)
-        .onTapGesture {
-          withAnimation(.snappy) {
-            isExpanded.toggle()
-          }
-        } .padding(.horizontal)
       }
     }
     .padding(.horizontal)
