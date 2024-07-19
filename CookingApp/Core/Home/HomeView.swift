@@ -15,7 +15,8 @@ import Charts
 
 struct HomeView: View {
   let name:String = "Arshia"
-  @EnvironmentObject var user: User
+  // TODO: uncomment
+//  @EnvironmentObject var user: User
   @State var currDay : DayInfo = templateData().days[0]
   //  @State var currMeal: Meal = dummyData.Meals[0]
   
@@ -29,7 +30,8 @@ struct HomeView: View {
               .imageScale(.large)
               .padding(.leading)
             Spacer()
-            Text("Welcome \(user.username)")
+            // TODO: uncomment
+            Text("Welcome" /* + "\(user.username)"*/)
               .padding(.trailing)
           }
               .frame(alignment: .top)
@@ -41,6 +43,8 @@ struct HomeView: View {
         
         
       }
+      
+      .navigationTitle("Home Page")
     }
   }
 }
@@ -58,7 +62,8 @@ struct ScrollViewRotate: View {
       ScrollView(.horizontal, showsIndicators: false) {
           LazyHStack {
             ForEach(Array(allDays.enumerated()), id: \.offset) { index, day in
-              NavigationLink(destination: RecipeView(recipe: Recipe()), label: {
+              NavigationLink(destination: RecipeView(recipe: 
+                  Recipe()), label: {
                 RoundedRectangle(cornerRadius: 8)
                   .fill(colorTheme.c1)
                   .frame(height: 150)
@@ -107,7 +112,12 @@ struct ScrollViewRotate: View {
             Spacer()
             
             
-            NavigationLink(destination: RecipeView(recipe: currDay.meals[index].recipe), label: {
+            NavigationLink(destination:
+                RecipeView(recipe: currDay.meals[index].recipe) 
+              .navigationTitle("Recipe Details")
+              .navigationBarTitleDisplayMode(.inline),
+                           
+              label: {
               
               Image(systemName:"arrow.right")
                 .foregroundColor(colorTheme.c1)

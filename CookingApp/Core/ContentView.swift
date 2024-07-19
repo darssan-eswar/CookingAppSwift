@@ -11,12 +11,13 @@ struct ContentView: View {
   @ObservedObject var user = User.shared
   
   var body: some View {
-    if user.isLoggedIn {
+    // TODO: Should be uncommented
+//    if user.isLoggedIn {
       ProtectedView()
-        .environmentObject(user)
-    } else {
-      AuthView()
-    }
+//        .environmentObject(user)
+//    } else {
+//      AuthView()
+//    }
   }
 }
 

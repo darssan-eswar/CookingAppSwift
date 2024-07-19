@@ -25,8 +25,8 @@
 		C7062B932C2E29B0004ADC12 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406822E2C2A3CCB00E3915A /* Ingredient.swift */; };
 		C7062B952C2F2894004ADC12 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7062B942C2F2894004ADC12 /* Meal.swift */; };
 		C7062B972C2F2A28004ADC12 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7062B962C2F2A28004ADC12 /* DummyData.swift */; };
-		C70EFB9E2C359B1B000E09FF /* NewRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EFB9D2C359B1B000E09FF /* NewRecipeView.swift */; };
 		C70EFBA02C35B106000E09FF /* RecipeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EFB9F2C35B106000E09FF /* RecipeSearchView.swift */; };
+		C752C2302C4A0A1500ABDD0A /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = C752C22F2C4A0A1500ABDD0A /* Recipes.json */; };
 		C77E4F522C34B33E00A346DF /* DayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4F512C34B33E00A346DF /* DayInfo.swift */; };
 		C77E4F542C34B5D800A346DF /* NonRecipeFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4F532C34B5D800A346DF /* NonRecipeFood.swift */; };
 		C77E4F562C34B98400A346DF /* NutritionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77E4F552C34B98400A346DF /* NutritionalValue.swift */; };
@@ -54,8 +54,8 @@
 		14C432872C3CBAF7002DBFB2 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C7062B942C2F2894004ADC12 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C7062B962C2F2A28004ADC12 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		C70EFB9D2C359B1B000E09FF /* NewRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeView.swift; sourceTree = "<group>"; };
 		C70EFB9F2C35B106000E09FF /* RecipeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchView.swift; sourceTree = "<group>"; };
+		C752C22F2C4A0A1500ABDD0A /* Recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
 		C77E4F512C34B33E00A346DF /* DayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfo.swift; sourceTree = "<group>"; };
 		C77E4F532C34B5D800A346DF /* NonRecipeFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonRecipeFood.swift; sourceTree = "<group>"; };
 		C77E4F552C34B98400A346DF /* NutritionalValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalValue.swift; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 		142D476A2C2863ED00CAFCC9 /* CookingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C7E7D1E52C489F5B001673FE /* LocalData */,
 				142D477D2C28641900CAFCC9 /* Utils */,
 				142D477C2C28641400CAFCC9 /* Managers */,
 				142D477B2C28641000CAFCC9 /* Models */,
@@ -204,10 +205,17 @@
 			isa = PBXGroup;
 			children = (
 				C79337F62C2CFB6100A7E0CE /* RecipeView.swift */,
-				C70EFB9D2C359B1B000E09FF /* NewRecipeView.swift */,
 				C70EFB9F2C35B106000E09FF /* RecipeSearchView.swift */,
 			);
 			path = Recipe;
+			sourceTree = "<group>";
+		};
+		C7E7D1E52C489F5B001673FE /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				C752C22F2C4A0A1500ABDD0A /* Recipes.json */,
+			);
+			path = LocalData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142D47732C2863EF00CAFCC9 /* Preview Assets.xcassets in Resources */,
+				C752C2302C4A0A1500ABDD0A /* Recipes.json in Resources */,
 				142D47702C2863EF00CAFCC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +307,6 @@
 				140682252C2A3B1B00E3915A /* HomeView.swift in Sources */,
 				142D47802C28647A00CAFCC9 /* Modifiers.swift in Sources */,
 				142D476C2C2863ED00CAFCC9 /* CookingApp.swift in Sources */,
-				C70EFB9E2C359B1B000E09FF /* NewRecipeView.swift in Sources */,
 				C7062B922C2E2988004ADC12 /* Recipe.swift in Sources */,
 				C77E4F522C34B33E00A346DF /* DayInfo.swift in Sources */,
 				C79337F72C2CFB6100A7E0CE /* RecipeView.swift in Sources */,

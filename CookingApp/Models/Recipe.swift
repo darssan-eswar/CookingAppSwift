@@ -10,17 +10,17 @@ import Foundation
 struct Recipe: Identifiable{
   
   public let id: String
-  let name: String
-  let description: String
-  let ingredients: [Ingredient]
-  let instructions: [String]
+  var name: String
+  var description: String
+  var ingredients: [Ingredient]
+  var instructions: [String]
   var nutInfo : NutritionalValue
   
   
   init() {
     
     self.id =  UUID().uuidString
-    self.name = "Click here to Enter Recipe"
+    self.name = "Empty Name"
     self.description = "This is the default description for the recipe"
     self.ingredients = [Ingredient(), Ingredient()]
     self.instructions = ["first step", "second step"]
