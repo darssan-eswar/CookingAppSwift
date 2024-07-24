@@ -8,7 +8,7 @@
 import Foundation
 
 
-class RecipeInfo : ObservableObject {
+class AllRecipes : ObservableObject {
  
   @Published var recipes : [Recipe]
   

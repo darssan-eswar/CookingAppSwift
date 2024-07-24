@@ -11,10 +11,33 @@ import Foundation
 
 struct templateData: Identifiable {
   let id : String = UUID().uuidString
+  
+  var allRecipes : [Recipe] = [
+    Recipe.of(
+        "Scrambled Eggs",
+        "Delicious scrambled eggs",
+        [Ingredient(theName: "Eggs", theUnit: "pcs", theQuantity: "3")],
+        ["Whisk eggs, season, cook over medium heat"]
+    ),
+    
+    Recipe.of(
+        "Chicken Sandwich",
+        "Tasty chicken sandwich",
+        [
+            Ingredient(theName: "Chicken breast", theUnit: "pcs", theQuantity: "1"),
+            Ingredient(theName: "Bread", theUnit: "slices", theQuantity: "2")
+        ],
+        ["Grill chicken, assemble with bread and vegetables"]
+        
+        )
+  ]
+    
+  
+  
   let scrambledEggs = Recipe.of(
       "Scrambled Eggs",
       "Delicious scrambled eggs",
-      [Ingredient(theName: "Eggs", theUnit: "pcs", theQuantity: 3)],
+      [Ingredient(theName: "Eggs", theUnit: "pcs", theQuantity: "5")],
       ["Whisk eggs, season, cook over medium heat"]
   )
 
@@ -22,8 +45,8 @@ struct templateData: Identifiable {
       "Chicken Sandwich",
       "Tasty chicken sandwich",
       [
-          Ingredient(theName: "Chicken breast", theUnit: "pcs", theQuantity: 1),
-          Ingredient(theName: "Bread", theUnit: "slices", theQuantity: 2)
+          Ingredient(theName: "Chicken breast", theUnit: "pcs", theQuantity: "2"),
+          Ingredient(theName: "Bread", theUnit: "slices", theQuantity: "4")
       ],
       ["Grill chicken, assemble with bread and vegetables"]
   )
@@ -32,8 +55,8 @@ struct templateData: Identifiable {
       "Grilled Salmon",
       "Healthy grilled salmon",
       [
-          Ingredient(theName: "Salmon fillet", theUnit: "pcs", theQuantity: 1),
-          Ingredient(theName: "Olive oil", theUnit: "tbsp", theQuantity: 1)
+          Ingredient(theName: "Salmon fillet", theUnit: "pcs", theQuantity: "3"),
+          Ingredient(theName: "Olive oil", theUnit: "tbsp", theQuantity: "2")
       ],
       ["Season salmon, grill until cooked through"]
   )
@@ -43,8 +66,8 @@ struct templateData: Identifiable {
       "Pancakes",
       "Fluffy pancakes",
       [
-          Ingredient(theName: "Flour", theUnit: "cups", theQuantity: 1),
-          Ingredient(theName: "Eggs", theUnit: "pcs", theQuantity: 2)
+          Ingredient(theName: "Flour", theUnit: "cups", theQuantity: "2"),
+          Ingredient(theName: "Eggs", theUnit: "pcs", theQuantity: "2")
       ],
       ["Mix ingredients, cook until golden brown"]
   )
@@ -53,8 +76,8 @@ struct templateData: Identifiable {
       "Caesar Salad",
       "Classic Caesar salad",
       [
-          Ingredient(theName: "Romaine lettuce", theUnit: "cups", theQuantity: 2),
-          Ingredient(theName: "Chicken breast", theUnit: "pcs", theQuantity: 1)
+          Ingredient(theName: "Romaine lettuce", theUnit: "cups", theQuantity: "9"),
+          Ingredient(theName: "Chicken breast", theUnit: "pcs", theQuantity: "8")
       ],
       ["Chop lettuce, grill chicken, toss with dressing"]
   )
@@ -63,8 +86,8 @@ struct templateData: Identifiable {
       "Beef Stir Fry",
       "Quick beef stir fry",
       [
-          Ingredient(theName: "Beef strips", theUnit: "grams", theQuantity: 200),
-          Ingredient(theName: "Bell peppers", theUnit: "pcs", theQuantity: 2)
+          Ingredient(theName: "Beef strips", theUnit: "grams", theQuantity: "200"),
+          Ingredient(theName: "Bell peppers", theUnit: "pcs", theQuantity: "44")
       ],
       ["Sear beef, stir fry with vegetables and sauce"]
   )
@@ -75,8 +98,8 @@ struct templateData: Identifiable {
       "Smoothie",
       "Refreshing fruit smoothie",
       [
-          Ingredient(theName: "Banana", theUnit: "pcs", theQuantity: 1),
-          Ingredient(theName: "Berries", theUnit: "cups", theQuantity: 1)
+          Ingredient(theName: "Banana", theUnit: "pcs", theQuantity: "3"),
+          Ingredient(theName: "Berries", theUnit: "cups", theQuantity: "8")
       ],
       ["Blend fruits with yogurt until smooth"]
   )
@@ -85,8 +108,8 @@ struct templateData: Identifiable {
       "Quinoa Salad",
       "Healthy quinoa salad",
       [
-          Ingredient(theName: "Quinoa", theUnit: "cups", theQuantity: 1),
-          Ingredient(theName: "Tomatoes", theUnit: "pcs", theQuantity: 2)
+          Ingredient(theName: "Quinoa", theUnit: "cups", theQuantity: "3"),
+          Ingredient(theName: "Tomatoes", theUnit: "pcs", theQuantity: "9")
       ],
       ["Cook quinoa, mix with vegetables and dressing"]
   )
@@ -95,8 +118,8 @@ struct templateData: Identifiable {
       "Vegetarian Pizza",
       "Delicious veggie pizza",
       [
-          Ingredient(theName: "Pizza dough", theUnit: "pcs", theQuantity: 1),
-          Ingredient(theName: "Cheese", theUnit: "cups", theQuantity: 1)
+          Ingredient(theName: "Pizza dough", theUnit: "pcs", theQuantity: "1"),
+          Ingredient(theName: "Cheese", theUnit: "cups", theQuantity: "1")
       ],
       ["Roll out dough, top with vegetables and cheese, bake"]
   )
@@ -107,8 +130,8 @@ struct templateData: Identifiable {
       "Avocado Toast",
       "Healthy avocado toast",
       [
-          Ingredient(theName: "Avocado", theUnit: "pcs", theQuantity: 1),
-          Ingredient(theName: "Bread", theUnit: "slices", theQuantity: 1)
+          Ingredient(theName: "Avocado", theUnit: "pcs", theQuantity: "1"),
+          Ingredient(theName: "Bread", theUnit: "slices", theQuantity: "1")
       ],
       ["Toast bread, spread avocado on top"]
   )
@@ -117,8 +140,8 @@ struct templateData: Identifiable {
       "Sushi",
       "Fresh sushi rolls",
       [
-          Ingredient(theName: "Sushi rice", theUnit: "cups", theQuantity: 1),
-          Ingredient(theName: "Salmon", theUnit: "pcs", theQuantity: 2)
+          Ingredient(theName: "Sushi rice", theUnit: "cups", theQuantity: "1"),
+          Ingredient(theName: "Salmon", theUnit: "pcs", theQuantity: "2")
       ],
       ["Cook rice, roll with salmon and nori"]
   )
@@ -127,8 +150,8 @@ struct templateData: Identifiable {
       "Chicken Curry",
       "Spicy chicken curry",
       [
-          Ingredient(theName: "Chicken thighs", theUnit: "pcs", theQuantity: 2),
-          Ingredient(theName: "Curry paste", theUnit: "tbsp", theQuantity: 2)
+          Ingredient(theName: "Chicken thighs", theUnit: "pcs", theQuantity: "2"),
+          Ingredient(theName: "Curry paste", theUnit: "tbsp", theQuantity: "2")
       ],
       ["Cook chicken with curry paste until tender"]
   )

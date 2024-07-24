@@ -9,12 +9,12 @@ import Foundation
 
 struct Ingredient: Codable, Identifiable {
   public let id: String
-  let name: String
-  let unit: String
-  let quantity: Double
+  var name: String
+  var unit: String
+  var quantity: String
  
   
-  init(theName name: String, theUnit unit: String, theQuantity quantity: Double) {
+  init(theName name: String, theUnit unit: String, theQuantity quantity: String) {
     self.name = name
     self.unit = unit
     self.quantity = quantity
@@ -22,6 +22,6 @@ struct Ingredient: Codable, Identifiable {
   }
   
   init() {
-    self.init(theName: "ing", theUnit: "cups", theQuantity: 3)
+    self.init(theName: "ing", theUnit: "cups", theQuantity: "2")
   }
 }

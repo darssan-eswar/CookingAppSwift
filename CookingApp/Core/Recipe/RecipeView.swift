@@ -11,9 +11,17 @@ import SwiftUI
 
 
 struct RecipeView: View {
+  // The recipe we are showing
   @State var recipe : Recipe
-  @State var editMenu : Bool = false
+  // true if we are editing current Recipe
+  @State var editRecipe : Bool = false
+  // true if we are creating new Recipe
   @State var newRecipe : Bool = false
+  // true if we are changing the recipe to a new one
+  @State var changeRecipe : Bool = false
+  
+  @State var ingPopover : Bool = false
+  @EnvironmentObject var allRecipes : AllRecipes
   
   var body: some View {
     
@@ -26,13 +34,14 @@ struct RecipeView: View {
             .font(.title)
             .frame(width: geometry.size.width / 2)
             .textSelection(.enabled)
-          
+            .disabled(!(editRecipe || newRecipe))
           if (newRecipe) {
             Button("Save") {
-             addToDataBase(recipe)
+              allRecipes.recipes.append(recipe)
+              newRecipe = false
             }
           } else {
-            EditView(newRecipe: $newRecipe, editMenu: $editMenu)
+            EditView(newRecipe: $newRecipe, editMenu: $editRecipe)
               .frame(width: geometry.size.width / 4)
           }
         }
@@ -57,23 +66,21 @@ struct RecipeView: View {
             Text("Ingredients")
               .frame(maxWidth: .infinity, alignment: .leading)
               .font(.title)
-            
-            
-            //          EditView(newRecipe: $newRecipe, editMenu: $editMenu)
-            //          Image(systemName: "pencil")
           }
           .padding(.horizontal)
         }
         
-        ForEach(Array(recipe.ingredients.enumerated()), id: \.element.id) { index , ing in
-         
-          HStack {
-              
-            Text("\(ing.quantity.formatted()) \(ing.unit) of \(ing.name)")
-          }
+        ForEach(Array($recipe.ingredients.enumerated()), id: \.element.id) { index , $ing in
+        
+          IngredientView(ing: $ing, enable: (editRecipe || newRecipe), ingPopover: $ingPopover)
+          
         }
         .frame(maxWidth: .infinity,alignment: .leading)
         .padding(.horizontal)
+       
+        if (editRecipe || newRecipe) {
+          
+        }
         
         Spacer()
           .frame(height: 10)
@@ -93,38 +100,90 @@ struct RecipeView: View {
         }
         .frame(maxWidth: .infinity,alignment: .leading)
         .padding(.horizontal)
-//        Text("TEST \(recipe.name)")
         
         Spacer()
       }
     }
     
-//    .padding(.vertical)
+    .popover(isPresented: $ingPopover, content: {
+//      RecipeSearchView(recipe, currRecipe: )
+      Text("TEMP")
+        .presentationDetents([.medium])
+    })
+  }
+}
+
+
+struct IngredientView : View {
+  @Binding var ing : Ingredient
+  var enable : Bool = false
+  @State var unit : String = ""
+  @State var quantity : String = ""
+  @Binding var ingPopover : Bool
+  
+  var body: some View {
+    
+    
+    
+    HStack {
+      Rectangle()
+        .fill(.gray)
+        .frame(width: 40, height: 30)
+        .cornerRadius(20)
+        .overlay {
+          TextField("\(ing.quantity)", text: $ing.quantity)
+        }
+      
+      Rectangle()
+        .fill(.gray)
+        .frame(width: 100, height: 30)
+        .cornerRadius(20)
+        .overlay {
+          TextField("Unit", text : $ing.unit)
+            .disabled(!enable)
+        }
+      
+      Rectangle()
+        .fill(.white)
+        .frame(width: 20, height: 30)
+        .cornerRadius(20)
+        .overlay {
+          Text("of")
+        }
+      
+      Rectangle()
+        .fill(.gray)
+        .frame(width: 170, height: 30)
+        .cornerRadius(20)
+        .overlay  {
+          Button (ing.name) {
+              ingPopover = true
+          }
+          .foregroundStyle(.black)
+        }
+    
+        
+        
+//        Menu ("\(ing.name)"){
+//            ForEach(0..<20) { index in
+//              
+//              Text("item 1")
+//            }
+//          
+        
+//        .foregroundStyle(.black)
+    }
+
+
   }
 }
 
 
 
 
-//"/Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/LocalData/Recipes.json")
-
 func addToDataBase(_ recipe : Recipe) {
-  let tempDict = ["FirstName" : "Arshia", "LastName" : "Eslami", "anotherItem": "test"]
-  let encoder = JSONEncoder()
-  do {
-    let encoded = try encoder.encode(tempDict)
-    let baseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    print(baseURL.absoluteString)
-   
-    let fileURL = URL(
-      filePath: "/Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/LocalData/Recipes.json")
   
-    try encoded.write(to: fileURL)
-  } catch {
-    print("ENCODING DIDN'T WORK")
-  }
-  
-  
+ 
   
 }
 
@@ -138,7 +197,7 @@ struct EditView : View {
     ZStack {
       Menu {
 
-        NavigationLink("Add new Recipe", destination:
+        NavigationLink("Create new Recipe", destination:
                         RecipeView(recipe: Recipe(), newRecipe: true))
         .onTapGesture {
           newRecipe = true

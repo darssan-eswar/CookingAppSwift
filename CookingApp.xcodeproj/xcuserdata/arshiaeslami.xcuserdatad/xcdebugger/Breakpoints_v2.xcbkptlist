@@ -14,8 +14,8 @@
             filePath = "CookingApp/Core/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,9 +30,397 @@
             filePath = "CookingApp/Core/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "894FD22B-1262-4B14-AB9C-FB818DDD5CC1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "882F7670-5634-45AE-B85B-1CFB4F739E44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "RecipeSearchView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FFA3B8E-A3E2-41CB-9D6B-2810ED15BE3C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "RecipeSearchView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "9FFA3B8E-A3E2-41CB-9D6B-2810ED15BE3C - dd68f3a8904465ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.filterdList.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "9FFA3B8E-A3E2-41CB-9D6B-2810ED15BE3C - d3b41462de8c3750"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (CookingApp.Recipe) -&gt; Swift.String in CookingApp.RecipeSearchView.filterdList.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "9FFA3B8E-A3E2-41CB-9D6B-2810ED15BE3C - d328a1ab04b26761"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; Swift.Bool in CookingApp.RecipeSearchView.filterdList.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E3545F2-42BE-425D-972F-884A820242F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "RecipeSearchView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80F31963-A8F4-45CB-BF15-56DA82F14BFA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "RecipeSearchView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAF2B453-E16C-4DA7-A519-12F3AB01BA9E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "RecipeSearchView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "filterdList"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - 7dfd02cd8f5a77ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of CookingApp.RecipeSearchView.isSearching : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - aef2b78357223ad1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.getter : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - 2d9d55d6becd1538"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.setter : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - 7c00dc631f82174b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.modify : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - a05d765b8a413ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - 70192d22d10c8000"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.$isSearching.getter : SwiftUI.Binding&lt;Swift.Bool&gt;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "ADC39A02-710A-4CA5-A616-25AC0BF3C29E - b38e4a6c9fe32cfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 2 of CookingApp.RecipeSearchView.init(allRecipes: SwiftUI.EnvironmentObject&lt;CookingApp.AllRecipes&gt;, typedText: Swift.String, isSearching: Swift.Bool) -&gt; CookingApp.RecipeSearchView"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "filterdList"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - 7dfd02cd8f5a77ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of CookingApp.RecipeSearchView.isSearching : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - aef2b78357223ad1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.getter : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - 2d9d55d6becd1538"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.setter : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - 7c00dc631f82174b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.modify : Swift.Bool"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - a05d765b8a413ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.isSearching.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - 70192d22d10c8000"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CookingApp.RecipeSearchView.$isSearching.getter : SwiftUI.Binding&lt;Swift.Bool&gt;"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
+               </Location>
+               <Location
+                  uuid = "F14D2C94-1625-4881-9F24-4EF443D32DC3 - b38e4a6c9fe32cfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 2 of CookingApp.RecipeSearchView.init(allRecipes: SwiftUI.EnvironmentObject&lt;CookingApp.AllRecipes&gt;, typedText: Swift.String, isSearching: Swift.Bool) -&gt; CookingApp.RecipeSearchView"
+                  moduleName = "CookingApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arshiaeslami/Documents/CookingAppSwift/CookingApp/Core/Recipe/RecipeSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64AD1CE7-D54B-4415-AF1F-5DD83A0DD86B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CookingApp/Core/Recipe/RecipeSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "filterdList"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

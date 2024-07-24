@@ -18,9 +18,9 @@ struct HomeView: View {
   // TODO: uncomment
 //  @EnvironmentObject var user: User
   @State var currDay : DayInfo = templateData().days[0]
-  //  @State var currMeal: Meal = dummyData.Meals[0]
-  
-  
+//  @State var allRecipes : [Recipe] = templateData().allRecipes
+//  @EnvironmentObject var recipeInfo : RecipeInfo
+  @StateObject var allRecipes : AllRecipes = AllRecipes()
   var body: some View {
     NavigationStack {
       ScrollView {
@@ -35,7 +35,8 @@ struct HomeView: View {
               .padding(.trailing)
           }
               .frame(alignment: .top)
-            ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay)
+          //TODO: Needs replacement with actual recipes
+          ScrollViewRotate(allDays: templateData().days, currDay: self.$currDay, currMeal: templateData().days[0].meals[0])
             PieChartView(currDay: self.$currDay)
               .frame(width: 250, height: 250)
           }
@@ -46,7 +47,9 @@ struct HomeView: View {
       
       .navigationTitle("Home Page")
     }
+    .environmentObject(allRecipes)
   }
+    
 }
 
 struct ScrollViewRotate: View {
@@ -56,7 +59,10 @@ struct ScrollViewRotate: View {
   @State private var currPosition : Int? = 0 // has to be Optional
   @State private var mealPageStr : String = "Meal Page"
   @State private var showRecipeSearch : Bool = false
+  @EnvironmentObject var recipeInfo : AllRecipes
   @State var currMeal : Meal?
+  
+  
   var body: some View {
       
       ScrollView(.horizontal, showsIndicators: false) {
@@ -70,8 +76,8 @@ struct ScrollViewRotate: View {
                   .overlay(
                     Text(day.weekDay)
                       .foregroundColor(.black)
-                    
                   )
+                  //
                   .containerRelativeFrame(.horizontal, count : 1, spacing: 30)
                   .id(index)
                 
@@ -85,8 +91,8 @@ struct ScrollViewRotate: View {
       }
       .scrollPosition(id: $currPosition)
       .onChange(of:currPosition) {
+        //TODO: needs modification for taking days into account
           currDay = allDays[currPosition ?? 0]
-//          mealPageStr = currMeal.title
       }
       .scrollTargetBehavior(.paging)
       .contentMargins(16, for:.scrollContent)
@@ -94,7 +100,7 @@ struct ScrollViewRotate: View {
     LazyVStack{
       ForEach(0..<Int(currDay.meals.count), id: \.self) { index in
         
-          HStack() {
+          HStack {
            
               Text("\(currDay.meals[index].title)")
                 .foregroundColor(.black)
@@ -113,7 +119,7 @@ struct ScrollViewRotate: View {
             
             
             NavigationLink(destination:
-                RecipeView(recipe: currDay.meals[index].recipe) 
+                            RecipeView(recipe: currDay.meals[index].recipe)
               .navigationTitle("Recipe Details")
               .navigationBarTitleDisplayMode(.inline),
                            
@@ -128,9 +134,9 @@ struct ScrollViewRotate: View {
     }
     .popover(isPresented: $showRecipeSearch, content: {
       
-      Text(currMeal?.recipe.name ?? "EMPTY, ERROR")
+      Text(currMeal?.recipe.name ?? "No Meal is Selected")
         .padding(.top)
-      RecipeSearchView()
+      RecipeSearchView(currMeal: $currMeal, showingPopover: $showRecipeSearch)
         .presentationDetents([.medium])
     })
     
