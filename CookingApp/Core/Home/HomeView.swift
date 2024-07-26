@@ -24,6 +24,7 @@ struct HomeView: View {
   var body: some View {
     NavigationStack {
       ScrollView {
+        // TODO: Add another HStack for the alignment of titles
         VStack(spacing: 24) {
           HStack(alignment:.top){
             Image(systemName:"cart.fill")
@@ -57,7 +58,7 @@ struct ScrollViewRotate: View {
   var allDays : [DayInfo]
   @Binding var currDay: DayInfo
   @State private var currPosition : Int? = 0 // has to be Optional
-  @State private var mealPageStr : String = "Meal Page"
+//  @State private var mealPageStr : String = "Meal Page"
   @State private var showRecipeSearch : Bool = false
   @EnvironmentObject var recipeInfo : AllRecipes
   @State var currMeal : Meal?
@@ -72,7 +73,7 @@ struct ScrollViewRotate: View {
                                                       Recipe(), hitSaved: .constant(false)), label: {
                 RoundedRectangle(cornerRadius: 8)
                   .fill(colorTheme.c1)
-                  .frame(height: 150)
+                  .frame(height: 100)
                   .overlay(
                     Text(day.weekDay)
                       .foregroundColor(.black)
