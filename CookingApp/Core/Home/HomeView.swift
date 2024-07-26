@@ -61,7 +61,7 @@ struct ScrollViewRotate: View {
   @State private var showRecipeSearch : Bool = false
   @EnvironmentObject var recipeInfo : AllRecipes
   @State var currMeal : Meal?
-  
+  @State var ifHalfScreen : Bool = true
   
   var body: some View {
       
@@ -69,7 +69,7 @@ struct ScrollViewRotate: View {
           LazyHStack {
             ForEach(Array(allDays.enumerated()), id: \.offset) { index, day in
               NavigationLink(destination: RecipeView(recipe: 
-                  Recipe()), label: {
+                                                      Recipe(), hitSaved: .constant(false)), label: {
                 RoundedRectangle(cornerRadius: 8)
                   .fill(colorTheme.c1)
                   .frame(height: 150)
@@ -119,7 +119,7 @@ struct ScrollViewRotate: View {
             
             
             NavigationLink(destination:
-                            RecipeView(recipe: currDay.meals[index].recipe)
+                            RecipeView(recipe: currDay.meals[index].recipe, hitSaved: .constant(false))
               .navigationTitle("Recipe Details")
               .navigationBarTitleDisplayMode(.inline),
                            
@@ -134,10 +134,8 @@ struct ScrollViewRotate: View {
     }
     .popover(isPresented: $showRecipeSearch, content: {
       
-      Text(currMeal?.recipe.name ?? "No Meal is Selected")
-        .padding(.top)
-      RecipeSearchView(currMeal: $currMeal, showingPopover: $showRecipeSearch)
-        .presentationDetents([.medium])
+      RecipeSearchView(currMeal: $currMeal, showingPopover: $showRecipeSearch, ifHalfScreen: $ifHalfScreen)
+        .presentationDetents(ifHalfScreen ? [.medium] : [.large])
     })
     
   }

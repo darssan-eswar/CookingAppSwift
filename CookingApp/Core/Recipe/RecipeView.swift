@@ -14,13 +14,15 @@ struct RecipeView: View {
   // The recipe we are showing
   @State var recipe : Recipe
   // true if we are editing current Recipe
-  @State var editRecipe : Bool = false
+  @State public var editRecipe : Bool = false
   // true if we are creating new Recipe
   @State var newRecipe : Bool = false
   // true if we are changing the recipe to a new one
   @State var changeRecipe : Bool = false
   
   @State var ingPopover : Bool = false
+  
+  @Binding var hitSaved : Bool
   @EnvironmentObject var allRecipes : AllRecipes
   
   var body: some View {
@@ -35,14 +37,28 @@ struct RecipeView: View {
             .frame(width: geometry.size.width / 2)
             .textSelection(.enabled)
             .disabled(!(editRecipe || newRecipe))
-          if (newRecipe) {
+          if (newRecipe || editRecipe) {
             Button("Save") {
+              //TODO: Needs replacement to the actual database
               allRecipes.recipes.append(recipe)
               newRecipe = false
+              editRecipe = false
+              hitSaved = false
+//              print(recipe.ingredients[0].unit)
+//              print(recipe.ingredients[0].quantity)
             }
+            .foregroundStyle(.green)
+            .frame(width: geometry.size.width / 4)
           } else {
-            EditView(newRecipe: $newRecipe, editMenu: $editRecipe)
+//            EditView(newRecipe: $newRecipe, editMenu: $editRecipe)
+//            
+            Button (action: {
+             editRecipe = true
+            }, label: {
+              Text("Edit")
+            })
               .frame(width: geometry.size.width / 4)
+            
           }
         }
       }
@@ -78,9 +94,6 @@ struct RecipeView: View {
         .frame(maxWidth: .infinity,alignment: .leading)
         .padding(.horizontal)
        
-        if (editRecipe || newRecipe) {
-          
-        }
         
         Spacer()
           .frame(height: 10)
@@ -130,9 +143,11 @@ struct IngredientView : View {
         .fill(.gray)
         .frame(width: 40, height: 30)
         .cornerRadius(20)
-        .overlay {
+        .overlay(alignment : .center) {
           TextField("\(ing.quantity)", text: $ing.quantity)
+            .multilineTextAlignment(.center)
         }
+      
       
       Rectangle()
         .fill(.gray)
@@ -141,7 +156,9 @@ struct IngredientView : View {
         .overlay {
           TextField("Unit", text : $ing.unit)
             .disabled(!enable)
+            .multilineTextAlignment(.center)
         }
+      
       
       Rectangle()
         .fill(.white)
@@ -161,17 +178,6 @@ struct IngredientView : View {
           }
           .foregroundStyle(.black)
         }
-    
-        
-        
-//        Menu ("\(ing.name)"){
-//            ForEach(0..<20) { index in
-//              
-//              Text("item 1")
-//            }
-//          
-        
-//        .foregroundStyle(.black)
     }
 
 
@@ -180,46 +186,52 @@ struct IngredientView : View {
 
 
 
-
-func addToDataBase(_ recipe : Recipe) {
-  
- 
-  
-}
-
-
-
-struct EditView : View {
-  @Binding var newRecipe : Bool
-  @Binding var editMenu : Bool
-  var body: some View {
+//struct EditView : View {
+//  @Binding var newRecipe : Bool
+//  @Binding var editMenu : Bool
+//  var body: some View {
+   
     
-    ZStack {
-      Menu {
+//    NavigationLink("Create new Recipe", destination:
+//                    RecipeView(recipe: Recipe(), newRecipe: true, hitSaved: .constant(false)))
+//    Button (action: {
+//     editMenu = true
+//    }, label: {
+//      Text("edit")
+//    })
+//      
+//    
+//    .onTapGesture {
+////      newRecipe = true
+//      editMenu = true
+//    }
+    
+//    ZStack {
+//      Menu {
+//
+//        NavigationLink("Create new Recipe", destination:
+//                        RecipeView(recipe: Recipe(), newRecipe: true, hitSaved: .constant(false)))
+//        .onTapGesture {
+//          newRecipe = true
+//        }
+//        Button("Change Recipe") {
+//          editMenu = true
+//        }
+//      } label: {
+//
+//        Image(systemName: "square.and.pencil")
+//
+//          .padding(.trailing)
+////                        .frame(width: geometry.size.width / 4)
+//          .onTapGesture {
+//            editMenu.toggle()
+//          }
+//          .foregroundColor(.blue)
+//      }
+//    }
 
-        NavigationLink("Create new Recipe", destination:
-                        RecipeView(recipe: Recipe(), newRecipe: true))
-        .onTapGesture {
-          newRecipe = true
-        }
-        Button("Change Recipe") {
-
-        }
-      } label: {
-
-        Image(systemName: "square.and.pencil")
-
-          .padding(.trailing)
-//                        .frame(width: geometry.size.width / 4)
-          .onTapGesture {
-            editMenu.toggle()
-          }
-          .foregroundColor(.blue)
-      }
-    }
-
-  }
-}
+//  }
+//}
 
 
 
@@ -291,5 +303,8 @@ struct ToggleViewInstruction: View {
 }
 
 #Preview{
-  RecipeView(recipe: templateData().days[0].lunch)
+  NavigationStack {
+    RecipeView(recipe: templateData().days[0].lunch, hitSaved: .constant(false))
+  }
+  .environmentObject(AllRecipes())
 }
