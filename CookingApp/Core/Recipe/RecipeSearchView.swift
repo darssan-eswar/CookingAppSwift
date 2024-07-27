@@ -1,104 +1,96 @@
-//
-//  RecipeSearchView.swift
-//  CookingApp
-//
-//  Created by Arshia Eslami on 7/3/24.
-//
-
-import Foundation
-
 import SwiftUI
 
-
-struct IngSearchView : View {
-  var body: some View {
-    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
-  }
+// View for displaying a simple greeting message
+struct IngSearchView: View {
+    var body: some View {
+        Text("Hello, world!")
+    }
 }
 
-
+// View for searching and selecting recipes
 struct RecipeSearchView: Identifiable, View {
-  @EnvironmentObject var allRecipes : AllRecipes
-  @Binding  var currMeal : Meal?
-  @Binding var showingPopover : Bool
-  @Binding var ifHalfScreen : Bool
-  let id : String = UUID().uuidString
-  
-  @State var typedText : String = ""
-  var filterdList : [Recipe]{
-    if typedText.isEmpty {
-      return allRecipes.recipes.map {$0}
-    } else {
-      return allRecipes.recipes.map {$0}.filter {
-        $0.name.lowercased().contains(typedText.lowercased())
-      }
+    // Environment object to access all recipes
+    @EnvironmentObject var allRecipes: AllRecipes
+    
+    // Binding variables to manage the current meal, popover state, and screen size
+    @Binding var currMeal: Meal?
+    @Binding var showingPopover: Bool
+    @Binding var ifHalfScreen: Bool
+    
+    // Unique identifier for the view
+    let id: String = UUID().uuidString
+    
+    // State variables for search functionality and new recipe view
+    @State private var typedText: String = ""
+    @State private var isSearching: Bool = false
+    @State private var showNewRecipe: Bool = false
+    
+    // Computed property to filter the list of recipes based on the search text
+    var filteredList: [Recipe] {
+        if typedText.isEmpty {
+            return allRecipes.recipes
+        } else {
+            return allRecipes.recipes.filter {
+                $0.name.lowercased().contains(typedText.lowercased())
+            }
+        }
     }
-  }
-  
-  @State var isSearching : Bool = false
-  @State var showNewRecipe : Bool = false
-  var body: some View {
-   
-    NavigationStack {
-      ScrollView {
-      LazyVStack (spacing : 20){
-       
-        HStack {
-          
-          Text(currMeal?.recipe.name ?? "No Meal is Selected")
-         
-            
-          Button("New recipe") {
-            showNewRecipe = true
-          }
-          .sheet(isPresented: $showNewRecipe, content: {
-            RecipeView(recipe: Recipe(), newRecipe: true, hitSaved: $showNewRecipe)
-          })
-//          NavigationLink (destination: {
-//          } , label : {
-//              Image(systemName: "pencil")
-////            Text("NEW")
-//          })
-          
+    
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                LazyVStack(spacing: 20) {
+                    // Display the name of the currently selected meal, if any
+                    HStack {
+                        Text(currMeal?.recipe.name ?? "No Meal Selected")
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    // Search bar for filtering recipes
+                    HStack {
+                        TextField("Search...", text: $typedText)
+                            .padding()
+                            .background(Color.gray.opacity(0.8))
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                    }
+                    .padding()
+                    
+                    // Button to add a new recipe
+                    Button(action: {
+                        showNewRecipe = true
+                    }) {
+                        HStack {
+                            Image(systemName: "plus") // Plus symbol for adding a recipe
+                                .imageScale(.small)
+                            
+                            Text("Add Recipe")
+                                .font(.system(size: 16, weight: .medium))
+                        }
+                    }
+                    .sheet(isPresented: $showNewRecipe) {
+                        RecipeView(recipe: Recipe(), newRecipe: true, hitSaved: $showNewRecipe)
+                    }
+                    
+                    // Display a list of filtered recipes
+                    ForEach(filteredList, id: \.id) { item in
+                        Button(action: {
+                            currMeal?.recipe = item
+                            showingPopover = false
+                        }) {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.gray)
+                                .frame(width: 200, height: 30)
+                                .overlay(
+                                    Text(item.name)
+                                        .foregroundColor(.black)
+                                )
+                        }
+                    }
+                }
+                .padding(.top)
+            }
         }
-        HStack {
-          TextField("Search...", text: $typedText)
-            .padding()
-            .background(.gray)
-            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
-            .foregroundColor(.white)
-            
-          
-            .cornerRadius(8)
-        }
-        .padding()
-        
-        ForEach(filterdList, id: \.id) { item in
-          Button(action: {
-            currMeal?.recipe = item
-            showingPopover = false
-          }, label: {
-            RoundedRectangle(cornerRadius: 20)
-              .fill(.gray)
-              .frame(width: 200, height: 30)
-              .overlay {
-                
-                Text(item.name)
-              }
-          })
-          .foregroundStyle(.black)
-          
-        }
-        
-        
-      }
-      .padding(.top)
-      }
     }
-  }
 }
-//#Preview {
-//  RecipeSearchView(currRecipe: .constant(Recipe()))
-//  // For preview on its own
-//    .environmentObject(AllRecipes())
-//}
